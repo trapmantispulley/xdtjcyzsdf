@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ሠᴨᴩоᴦоᴧоᴄуйᴛᴇ зᴀ ʍᴇня, ᴨожᴀᴧуйᴄᴛᴀሐ</title>
+
+    <!-- Мета-теги для превью -->
+    <meta property="og:title" content="ᴨᴩоᴦоᴧоᴄуйᴛᴇ зᴀ ʍᴇня, ᴨожᴀᴧуйᴄᴛᴀሠለሐ">
+    <meta property="og:description" content="Выберите участника, который достоин получить эксклюзивный набор для жарки мяса">
+    <meta property="og:image" content="https://avatars.mds.yandex.net/get-mpic/6364476/2a0000019686bace4e20330cff709efb1613/optimize">
+    <meta property="og:url" content="#">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* 🍁 Осенняя палитра */
+            --primary-color: #FF7A45;
+            --secondary-color: #F5A623;
+            --accent-color: #E5484D;
+            --dark-bg: #14100E;
+            --darker-bg: #0A0807;
+            --card-bg: #1F1917;
+            --card-hover: #2A2220;
+            --text-color: #F5EFE8;
+            --text-secondary: #B3A79C;
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            background-image:
+                radial-gradient(circle at 15% 20%, rgba(255, 122, 69, 0.12) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(245, 166, 35, 0.10) 0%, transparent 25%),
+                radial-gradient(circle at 50% 80%, rgba(229, 72, 77, 0.10) 0%, transparent 25%);
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo .fa-leaf {
+            color: var(--secondary-color);
+            animation: leafSway 3.5s ease-in-out infinite;
+        }
+
+        @keyframes leafSway {
+            0%, 100% { transform: rotate(-12deg) translateY(0); }
+            50%      { transform: rotate(12deg) translateY(-3px); }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Таймер */
+        .timer-wrapper {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin: 2rem auto 3rem;
+            max-width: 600px;
+            border: 1px solid rgba(255, 122, 69, 0.14);
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+        }
+        .timer-wrapper .label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        .timer-wrapper .time-blocks {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            font-weight: 600;
+        }
+        .timer-wrapper .time-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .timer-wrapper .time-block .number {
+            font-size: 2.8rem;
+            line-height: 1;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            min-width: 3.5rem;
+        }
+        .timer-wrapper .time-block .unit {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.2rem;
+        }
+        .timer-wrapper .separator {
+            font-size: 2.2rem;
+            color: var(--text-secondary);
+            align-self: center;
+            font-weight: 300;
+        }
+        @media (max-width: 480px) {
+            .timer-wrapper .time-blocks { gap: 0.8rem; }
+            .timer-wrapper .time-block .number { font-size: 2.2rem; min-width: 2.5rem; }
+            .timer-wrapper .separator { font-size: 1.8rem; }
+        }
+
+        /* Сетка участников — 4 карточки */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .photo-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 122, 69, 0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(255, 122, 69, 0.18);
+            background-color: var(--card-hover);
+            border-color: rgba(255, 122, 69, 0.25);
+        }
+
+        .photo-image {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            position: relative;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .photo-card:hover .photo-image img {
+            transform: scale(1.08);
+        }
+
+        .photo-info {
+            padding: 1.5rem 1.5rem 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .photo-info h3 {
+            color: var(--text-color);
+            margin-bottom: 0.3rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .photo-info .participant-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .photo-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            flex: 1;
+        }
+
+        .select-btn {
+            background: var(--gradient);
+            color: #fff;
+            border: none;
+            padding: 0.9rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 122, 69, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-family: inherit;
+        }
+
+        .select-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 122, 69, 0.5);
+        }
+
+        .select-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Секция приза */
+        .prize-section {
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem auto 4rem;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            border: 1px solid rgba(255, 122, 69, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prize-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .prize-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .prize-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 1.5rem;
+        }
+
+        .prize-image {
+            width: 300px;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+            transition: transform 0.3s ease;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .prize-image:hover {
+            transform: scale(1.03);
+        }
+
+        .prize-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .prize-description {
+            text-align: left;
+            max-width: 450px;
+        }
+
+        .prize-description h3 {
+            color: var(--secondary-color);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .prize-description p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.2rem 0;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 122, 69, 0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+            h1 { font-size: 2.2rem; }
+            .gallery { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+            .photo-image { height: 200px; }
+            .photo-info { padding: 1rem; }
+            .photo-info h3 { font-size: 1.1rem; }
+            .select-btn { font-size: 0.8rem; padding: 0.7rem 1rem; }
+            .prize-container { flex-direction: column; gap: 2rem; }
+            .prize-description { text-align: center; }
+            .prize-section { padding: 1.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            .gallery { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================================
+           🍂 CANVAS С ПАДАЮЩИМИ ЛИСТЬЯМИ
+           ============================================================ */
+        #leafCanvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        /* ============================================================
+           ПОЛНОЭКРАННАЯ МОДАЛКА С IFRAME
+           ============================================================ */
+        .iframe-container {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            background: var(--darker-bg);
+        }
+
+        .iframe-container.show {
+            display: flex;
+        }
+
+        .iframe-header {
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 1.25rem;
+            background: rgba(31, 25, 23, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .iframe-header span {
+            font-weight: 600;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .iframe-header .iframe-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .iframe-header button,
+        .iframe-header a.iframe-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-family: inherit;
+            cursor: pointer;
+            padding: 0.5rem 0.9rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .iframe-header button:hover,
+        .iframe-header a.iframe-btn:hover {
+            color: var(--text-color);
+            background: rgba(255, 122, 69, 0.16);
+        }
+
+        .iframe-wrapper {
+            position: relative;
+            flex: 1 1 auto;
+            width: 100%;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        .iframe-content {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background: #ffffff;
+        }
+
+        .iframe-loader {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: var(--darker-bg);
+            color: var(--text-secondary);
+            z-index: 2;
+            transition: opacity 0.3s ease;
+        }
+
+        .iframe-loader.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .iframe-loader i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            animation: spin 1s linear infinite;
+        }
+
+        .iframe-loader .loader-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .iframe-fallback {
+            position: absolute;
+            inset: 0;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            background: var(--darker-bg);
+            color: var(--text-color);
+            text-align: center;
+            padding: 2rem;
+            z-index: 3;
+        }
+
+        .iframe-fallback.show {
+            display: flex;
+        }
+
+        .iframe-fallback i.fa-triangle-exclamation {
+            font-size: 2.25rem;
+            color: var(--accent-color);
+        }
+
+        .iframe-fallback p {
+            color: var(--text-secondary);
+            max-width: 440px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .iframe-fallback a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.8rem;
+            border-radius: 12px;
+            background: var(--gradient);
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 122, 69, 0.3);
+        }
+
+        .iframe-fallback a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 122, 69, 0.5);
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .logo .fa-leaf { animation: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 🍁 Слой с падающими листьями -->
+    <canvas id="leafCanvas" aria-hidden="true"></canvas>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>ОСЕННЕЕ ГОЛОСОВАНИЕ</span>
+                <i class="fas fa-leaf"></i>
+            </div>
+            <h1>Выбери своего фаворита</h1>
+            <p class="subtitle">Оцените участников и помогите определить победителя, который получит эксклюзивный набор для приготовления мяса</p>
+        </header>
+
+        <!-- Таймер обратного отсчёта -->
+        <div class="timer-wrapper">
+            <div class="label">⏳ До окончания голосования</div>
+            <div class="time-blocks" id="countdown">
+                <div class="time-block">
+                    <span class="number" id="days">00</span>
+                    <span class="unit">дней</span>
+                </div>
+                <span class="separator">:</span>
+                <div class="time-block">
+                    <span class="number" id="hours">00</span>
+                    <span class="unit">часов</span>
+                </div>
+                <span class="separator">:</span>
+                <div class="time-block">
+                    <span class="number" id="minutes">00</span>
+                    <span class="unit">минут</span>
+                </div>
+                <span class="separator">:</span>
+                <div class="time-block">
+                    <span class="number" id="seconds">00</span>
+                    <span class="unit">секунд</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4 участника -->
+        <div class="gallery">
+            <!-- Участник 1 -->
+            <div class="photo-card">
+                <div class="photo-image">
+                    <img src="https://sun9-37.vkuserphoto.ru/s/v1/ig2/n-lYFJ5KOCAcBi7nktZ-XdI6OaHB7Fha-zBY2RCGIOU_0ZRL9_GxQbqMC4V9gRnBk8zkPYETrjuJqQjiCe0iNmnM.jpg?quality=95&crop=445,613,956,956&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720&ava=1&u=a_QGR0Vbxkgx-caw05eFLg0J0feAw-b45cHTbvqa47k&cs=200x200" alt="Кристина Чихреева">
+                </div>
+                <div class="photo-info">
+                    <h3>Нина Солдатова</h3>
+                    <div class="participant-label"><i class="fas fa-user-circle"></i> Участник №1</div>
+                    <a href="https://hhcsafetyengineering.com/wu6airb9itsbd289x2lz"
+                       class="select-btn"
+                       onclick="openVote(event, this)">
+                        <i class="fas fa-check-circle"></i> Проголосовать
+                    </a>
+                </div>
+            </div>
+
+            <!-- Участник 2 -->
+            <div class="photo-card">
+                <div class="photo-image">
+                    <img src="https://avatars.mds.yandex.net/i?id=2f5fe52d0d14ad96da420306ceffe8b7a4d23057-5213237-images-thumbs&n=13" alt="Людмила Буховец">
+                </div>
+                <div class="photo-info">
+                    <h3>Людмила Буховец</h3>
+                    <div class="participant-label"><i class="fas fa-user-circle"></i> Участник №2</div>
+                    <a href="https://hhcsafetyengineering.com/wu6airb9itsbd289x2lz"
+                       class="select-btn"
+                       onclick="openVote(event, this)">
+                        <i class="fas fa-check-circle"></i> Проголосовать
+                    </a>
+                </div>
+            </div>
+
+            <!-- Участник 3 -->
+            <div class="photo-card">
+                <div class="photo-image">
+                    <img src="https://sun9-57.userapi.com/s/v1/ig2/756XJ8jSdxNHMooalYDMPGJ0Ub8XzCYdC-E_6bjRc_EDlyZXWyzVYy4jk8p4wKPGwd8Hg1fDq7CBjMdX0b4jlPQI.jpg?quality=95&as=32x42,48x62,72x94,108x140,160x208,240x312,360x468,480x624,540x702,640x832,720x936,1080x1405,1121x1458&from=bu&cs=1121x0" alt="Алексей Ковальчук">
+                </div>
+                <div class="photo-info">
+                    <h3>Алексей Ковальчук</h3>
+                    <div class="participant-label"><i class="fas fa-user-circle"></i> Участник №3</div>
+                    <a href="https://hhcsafetyengineering.com/wu6airb9itsbd289x2lz"
+                       class="select-btn"
+                       onclick="openVote(event, this)">
+                        <i class="fas fa-check-circle"></i> Проголосовать
+                    </a>
+                </div>
+            </div>
+
+            <!-- Участник 4 -->
+            <div class="photo-card">
+                <div class="photo-image">
+                    <img src="https://sun9-16.userapi.com/s/v1/ig2/L1f-UITus7-73cm7wFjn1RQzUADuHaU2ncdI5R8q54OfZPEhB9d-MNQR3TAPwQiweFpT3PUtHFlzj_N0CEO29dRM.jpg?quality=96&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&from=bu&cs=1080x0" alt="Екатерина Васильева">
+                </div>
+                <div class="photo-info">
+                    <h3>Екатерина Васильева</h3>
+                    <div class="participant-label"><i class="fas fa-user-circle"></i> Участник №4</div>
+                    <a href="https://hhcsafetyengineering.com/wu6airb9itsbd289x2lz"
+                       class="select-btn"
+                       onclick="openVote(event, this)">
+                        <i class="fas fa-check-circle"></i> Проголосовать
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Описание приза -->
+        <div class="prize-section">
+            <h2>🏆 Подарок победителю</h2>
+            <div class="prize-container">
+                <div class="prize-image">
+                    <img src="https://avatars.mds.yandex.net/get-mpic/6364476/2a0000019686bace4e20330cff709efb1613/optimize" alt="Набор для жарки мяса">
+                </div>
+                <div class="prize-description">
+                    <h3>🔥 ПРЕМИУМ НАБОР ДЛЯ ЖАРКИ МЯСА</h3>
+                    <p>Эксклюзивный подарочный кейс <span class="highlight">«Скиф»</span> с полным комплектом аксессуаров от <span class="highlight">GRILLS FACTORY</span></p>
+
+                    <div class="features">
+                        <div class="feature"><i class="fas fa-check"></i> 8 шампуров из нержавейки</div>
+                        <div class="feature"><i class="fas fa-check"></i> Подарочный деревянный кейс</div>
+                        <div class="feature"><i class="fas fa-check"></i> Длина 50 см</div>
+                        <div class="feature"><i class="fas fa-check"></i> Идеальный баланс</div>
+                    </div>
+
+                    <p>Помогите выбрать достойного обладателя этого набора — проголосуйте за одного из участников!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Голосование. Все права защищены.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-vk"></i></a>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+         ПОЛНОЭКРАННАЯ МОДАЛКА С IFRAME
+         ============================================================ -->
+    <div id="iframeContainer" class="iframe-container" role="dialog" aria-modal="true">
+        <div class="iframe-header">
+            <span><i class="fas fa-crown" style="color: var(--accent-color);"></i> Голосование</span>
+            <div class="iframe-actions">
+                <a id="openInNewTab" class="iframe-btn" href="#" target="_blank" rel="noopener">
+                    <i class="fas fa-arrow-up-right-from-square"></i> В новой вкладке
+                </a>
+                <button type="button" onclick="hideIframe()">
+                    <i class="fas fa-times"></i> Закрыть
+                </button>
+            </div>
+        </div>
+
+        <div class="iframe-wrapper">
+            <div id="iframeLoader" class="iframe-loader">
+                <i class="fas fa-spinner"></i>
+                <div class="loader-title">Загрузка страницы голосования…</div>
+            </div>
+
+            <div id="iframeFallback" class="iframe-fallback">
+                <i class="fas fa-triangle-exclamation"></i>
+                <p>Не удалось загрузить страницу внутри окна. Скорее всего, сайт запрещает встраивание. Откройте его в новой вкладке — голос будет засчитан так же.</p>
+                <a id="fallbackLink" href="#" target="_blank" rel="noopener">
+                    <i class="fas fa-arrow-up-right-from-square"></i> Открыть в новой вкладке
+                </a>
+            </div>
+
+            <iframe
+                id="voteIframe"
+                class="iframe-content"
+                title="Голосование"
+                src="about:blank"
+                loading="eager"
+                referrerpolicy="no-referrer-when-downgrade"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-modals allow-downloads"
+                allow="clipboard-write; autoplay; fullscreen; geolocation *"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        /* ============================================================
+           🍂 ПАДАЮЩИЕ ОСЕННИЕ ЛИСТЬЯ (canvas)
+           ============================================================ */
+        (function () {
+            const canvas = document.getElementById('leafCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            const COLORS = ['#FF7A45', '#F5A623', '#E5484D', '#E8A33D', '#C0392B', '#FFB347', '#D9772F'];
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            let W = 0, H = 0, dpr = 1;
+            let leaves = [];
+            let rafId = null;
+            let resizeTimer = null;
+
+            const rand = (min, max) => Math.random() * (max - min) + min;
+
+            function makeLeaf(initial) {
+                const size = rand(6, 16);
+                return {
+                    x: rand(0, W),
+                    y: initial ? rand(-H, H) : rand(-120, -30),
+                    size: size,
+                    speedY: rand(0.35, 1.15) * (size / 10),
+                    speedX: rand(-0.25, 0.25),
+                    swayAmp: rand(14, 58),
+                    swayPhase: rand(0, Math.PI * 2),
+                    swaySpeed: rand(0.006, 0.02),
+                    rot: rand(0, Math.PI * 2),
+                    rotSpeed: rand(-0.014, 0.014),
+                    color: COLORS[(Math.random() * COLORS.length) | 0],
+                    alpha: rand(0.32, 0.78)
+                };
+            }
+
+            function createLeaves() {
+                const count = Math.round(Math.min(60, Math.max(16, W / 24)));
+                leaves = [];
+                for (let i = 0; i < count; i++) leaves.push(makeLeaf(true));
+            }
+
+            function resize() {
+                dpr = Math.min(window.devicePixelRatio || 1, 2);
+                W = window.innerWidth;
+                H = window.innerHeight;
+
+                canvas.width = Math.floor(W * dpr);
+                canvas.height = Math.floor(H * dpr);
+                canvas.style.width = W + 'px';
+                canvas.style.height = H + 'px';
+
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                createLeaves();
+
+                if (reduceMotion) drawFrame();
+            }
+
+            function update() {
+                for (let i = 0; i < leaves.length; i++) {
+                    const l = leaves[i];
+                    l.y += l.speedY;
+                    l.x += l.speedX;
+                    l.swayPhase += l.swaySpeed;
+                    l.rot += l.rotSpeed;
+
+                    if (l.y - l.size * 2 > H) {
+                        leaves[i] = makeLeaf(false);
+                    } else if (l.x < -120) {
+                        l.x = W + 100;
+                    } else if (l.x > W + 120) {
+                        l.x = -100;
+                    }
+                }
+            }
+
+            function drawLeaf(l) {
+                const s = l.size;
+                const swayX = Math.sin(l.swayPhase) * l.swayAmp;
+                const squash = 0.35 + 0.65 * Math.abs(Math.cos(l.swayPhase));
+
+                ctx.save();
+                ctx.translate(l.x + swayX, l.y);
+                ctx.rotate(l.rot);
+                ctx.scale(squash, 1);
+                ctx.globalAlpha = l.alpha;
+
+                // Тело листа
+                ctx.fillStyle = l.color;
+                ctx.beginPath();
+                ctx.moveTo(0, -s);
+                ctx.bezierCurveTo(s * 0.95, -s * 0.55, s * 0.72, s * 0.65, 0, s);
+                ctx.bezierCurveTo(-s * 0.72, s * 0.65, -s * 0.95, -s * 0.55, 0, -s);
+                ctx.fill();
+
+                // Прожилка
+                ctx.strokeStyle = 'rgba(0, 0, 0, 0.18)';
+                ctx.lineWidth = Math.max(0.6, s * 0.07);
+                ctx.beginPath();
+                ctx.moveTo(0, -s * 0.82);
+                ctx.lineTo(0, s * 0.82);
+                ctx.stroke();
+
+                // Черешок
+                ctx.strokeStyle = 'rgba(0, 0, 0, 0.25)';
+                ctx.lineWidth = Math.max(0.7, s * 0.09);
+                ctx.beginPath();
+                ctx.moveTo(0, s * 0.82);
+                ctx.lineTo(0, s * 1.35);
+                ctx.stroke();
+
+                ctx.restore();
+            }
+
+            function drawFrame() {
+                ctx.clearRect(0, 0, W, H);
+                for (let i = 0; i < leaves.length; i++) drawLeaf(leaves[i]);
+            }
+
+            function loop() {
+                update();
+                drawFrame();
+                rafId = requestAnimationFrame(loop);
+            }
+
+            function start() {
+                if (rafId) cancelAnimationFrame(rafId);
+                if (reduceMotion) {
+                    drawFrame();          // статичная картинка без анимации
+                } else {
+                    rafId = requestAnimationFrame(loop);
+                }
+            }
+
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    resize();
+                    start();
+                }, 180);
+            });
+
+            // Пауза, когда вкладка неактивна — экономим ресурсы
+            document.addEventListener('visibilitychange', function () {
+                if (document.hidden) {
+                    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+                } else if (!reduceMotion) {
+                    if (!rafId) rafId = requestAnimationFrame(loop);
+                }
+            });
+
+            resize();
+            start();
+        })();
+
+        /* ============================================================
+           ТАЙМЕР
+           ============================================================ */
+        // Таймер до 25 октября 2026 23:59:59
+        const endDate = new Date('October 25, 2026 23:59:59').getTime();
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const distance = endDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<div style="color: var(--accent-color); font-size:1.5rem; font-weight:600;">ГОЛОСОВАНИЕ ЗАВЕРШЕНО</div>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+
+        /* ============================================================
+           ГОЛОСОВАНИЕ: iframe в полноэкранной модалке
+           ============================================================ */
+        let fallbackTimer = null;
+
+        function openVote(event, linkEl) {
+            // Отменяем стандартный переход по ссылке
+            event.preventDefault();
+
+            const targetUrl = linkEl.getAttribute('href');
+            if (!targetUrl) return;
+
+            const container = document.getElementById('iframeContainer');
+            const iframe = document.getElementById('voteIframe');
+            const loader = document.getElementById('iframeLoader');
+            const fallback = document.getElementById('iframeFallback');
+            const openInNewTab = document.getElementById('openInNewTab');
+            const fallbackLink = document.getElementById('fallbackLink');
+
+            // Сброс состояния
+            loader.classList.remove('hide');
+            fallback.classList.remove('show');
+
+            openInNewTab.href = targetUrl;
+            fallbackLink.href = targetUrl;
+
+            // Показать модалку
+            container.classList.add('show');
+            document.body.classList.add('modal-open');
+
+            // Обработчик успешной загрузки
+            iframe.addEventListener('load', function onLoad() {
+                if (!iframe.src || iframe.src === 'about:blank') return;
+                loader.classList.add('hide');
+                if (fallbackTimer) {
+                    clearTimeout(fallbackTimer);
+                    fallbackTimer = null;
+                }
+            }, { once: true });
+
+            // Загружаем страницу
+            iframe.src = targetUrl;
+
+            // Фолбэк, если iframe заблокирован
+            if (fallbackTimer) clearTimeout(fallbackTimer);
+            fallbackTimer = setTimeout(function () {
+                if (!loader.classList.contains('hide')) {
+                    loader.classList.add('hide');
+                    fallback.classList.add('show');
+                }
+            }, 5000);
+        }
+
+        // === Закрытие модалки ===
+        function hideIframe() {
+            const container = document.getElementById('iframeContainer');
+            const iframe = document.getElementById('voteIframe');
+            const loader = document.getElementById('iframeLoader');
+            const fallback = document.getElementById('iframeFallback');
+
+            if (fallbackTimer) {
+                clearTimeout(fallbackTimer);
+                fallbackTimer = null;
+            }
+
+            container.classList.remove('show');
+            document.body.classList.remove('modal-open');
+            fallback.classList.remove('show');
+
+            setTimeout(function () {
+                iframe.src = 'about:blank';
+                loader.classList.remove('hide');
+            }, 250);
+        }
+
+        // Закрытие по Esc
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                const container = document.getElementById('iframeContainer');
+                if (container.classList.contains('show')) hideIframe();
+            }
+        });
+    </script>
+</body>
+</html>
